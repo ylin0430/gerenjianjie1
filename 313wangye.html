@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人履歷 - 亞洲大學</title>
+    <style>
+        /* 全域樣式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+        }
+
+        /* 變數定義 */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #f8f9fa;
+            --gray-color: #95a5a6;
+            --dark-color: #343a40;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f5f5f5;
+            scroll-behavior: smooth;
+        }
+
+        /* 容器樣式 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 頁首樣式 */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #ecf0f1;
+            margin-bottom: 1rem;
+        }
+
+        /* 主要內容區域 */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+            display: inline-block;
+        }
+
+        /* 個人資訊樣式 */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .info-icon {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-right: 1rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* 技能樣式 */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background-color: var(--secondary-color);
+            border-radius: 5px;
+            transition: width 1s ease-in-out;
+            width: 0;
+        }
+
+        /* 經歷與教育樣式 */
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 4px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 1.5rem;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 回到頂部按鈕 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+    <!-- 引入圖標庫 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入台灣正體中文字型 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 頁首區域 -->
+    <header>
+        <div class="container">
+            <img src="https://via.placeholder.com/150" alt="個人照片" class="profile-img">
+            <h1>柯靜宜</h1>
+            <p class="subtitle">亞洲大學 | 學號：114024010</p>
+            <p>求職意向：輕鬆、有創作力的崗位</p>
+        </div>
+    </header>
+
+    <!-- 主要內容 -->
+    <main class="container">
+        <!-- 個人資訊區段 -->
+        <section class="section" id="personal-info">
+            <h2 class="section-title">個人資訊</h2>
+            <div class="info-grid">
+                <div>
+                    <div class="info-item">
+                        <i class="fas fa-id-card info-icon"></i>
+                        <span><strong>姓名：</strong>柯靜宜</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-user-graduate info-icon"></i>
+                        <span><strong>學校：</strong>亞洲大學</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-id-badge info-icon"></i>
+                        <span><strong>學號：</strong>114024010</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-graduation-cap info-icon"></i>
+                        <span><strong>學歷：</strong>大學在學中</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="info-item">
+                        <i class="fas fa-phone info-icon"></i>
+                        <span><strong>電話：</strong>0912-345-678</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope info-icon"></i>
+                        <span><strong>信箱：</strong>example@email.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt info-icon"></i>
+                        <span><strong>地址：</strong>台中某處限時開放冷氣宿舍</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-birthday-cake info-icon"></i>
+                        <span><strong>生日：</strong>2003/02/30</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 學業成績/專長 -->
+        <section class="section" id="skills">
+            <h2 class="section-title">專業技能</h2>
+            <div class="skills-grid">
+                <div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>聽人話</span>
+                            <span>40%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="40"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>畫大餅</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Python</span>
+                            <span>1%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>英文能力</span>
+                            <span>10%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="10"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>團隊合作</span>
+                            <span>15%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="15"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>暴力問題解決</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 教育背景 -->
+        <section class="section" id="education">
+            <h2 class="section-title">教育背景</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 - 至今</div>
+                    <div class="timeline-title">亞洲大學 - 資訊傳播學系</div>
+                    <p>學士學位 | 學號：114024010</p>
+                    <p>主要課程：請填入你的主要課程，例如：程式設計、資料結構、人工智慧等</p>
+                    <p>GPA：請填入你的GPA（不知道）</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - 2025</div>
+                    <div class="timeline-title">花錢進高中</div>
+                    <p>相關科系（如有）</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 經歷與作品集 -->
+        <section class="section" id="experience">
+            <h2 class="section-title">實習/專案經歷</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - 2025</div>
+                    <div class="timeline-title">學校免費童工</div>
+                    <p><strong>擔任角色：</strong>專案開發/負責人/全部</p>
+                    <p><strong>專案描述：</strong>ALL</p>
+                    <p><strong>主要成果：</strong>全校三年醜照+影片</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - 2025</div>
+                    <div class="timeline-title">學校</div>
+                    <p><strong>實習職位：</strong>環境維護員</p>
+                    <p><strong>實習內容：</strong>掃地</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 自我介紹 -->
+        <section class="section" id="introduction">
+            <h2 class="section-title">自我介紹</h2>
+            <p style="line-height: 1.8; font-size: 1.1rem;">
+                您好，我是亞洲大學的學生（學號：114024010），具備基礎的專業基礎和強烈的學習動力。我擁有良好的脾氣和問題解決能力，善於干擾團隊合作，並且具備缺德和溝通表達能力。<br><br>
+                在學習過程中，我積極參與各種專案實踐，累積了豐富的實作經驗。我對新技術保持高度的熱情，並且具備快速學習和適應的能力。<br><br>
+                我希望能夠加入貴公司/組織，將所學知識應用於實際工作中，同時不斷學習和成長，為團隊帶來價值。
+            </p>
+        </section>
+    </main>
+
+    <!-- 回到頂部按鈕 -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // 技能條動畫效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 獲取所有技能條元素
+            const skillLevels = document.querySelectorAll('.skill-level');
+            
+            // 設置技能條寬度動畫
+            setTimeout(() => {
+                skillLevels.forEach(level => {
+                    const dataLevel = level.getAttribute('data-level');
+                    level.style.width = `${dataLevel}%`;
+                });
+            }, 300);
+
+            // 回到頂部按鈕功能
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            // 滾動事件監聽
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+            
+            // 點擊回到頂部
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // 平滑滾動
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
