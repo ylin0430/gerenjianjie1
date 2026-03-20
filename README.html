@@ -3,20 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>柯靜宜｜創意履歷</title>
+<title>個人履歷 - 柯靜宜</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 :root{
-    --bg:#f6f7fb;
+    --bg:#f5f7fb;
     --card:#ffffff;
+    --border:#e5e7eb;
     --text:#1f2937;
     --sub:#6b7280;
-    --accent:#6366f1;
+    --accent:#4f46e5;
 }
 
+/* 背景（柔和淺色） */
 body{
     margin:0;
     font-family:'Noto Sans TC',sans-serif;
@@ -31,61 +33,63 @@ header{
 }
 
 .profile-img{
-    width:120px;
-    height:120px;
+    width:130px;
+    height:130px;
     border-radius:50%;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border:3px solid var(--border);
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
 }
 
 h1{margin:10px 0 5px;}
 .subtitle{color:var(--sub);}
-.career{
-    display:inline-block;
-    margin-top:10px;
-    padding:6px 14px;
-    border-radius:20px;
-    background:#eef2ff;
+.career{color:var(--accent);font-size:0.9rem;}
+
+/* 主排版 */
+.layout{
+    display:grid;
+    grid-template-columns: 300px 1fr;
+    gap:25px;
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+/* 卡片 */
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* 標題 */
+.title{
     color:var(--accent);
+    margin-bottom:15px;
+    font-size:1.2rem;
+    font-weight:600;
+}
+
+/* 左側 */
+.sidebar .info-item{
+    margin-bottom:10px;
+    font-size:0.95rem;
+}
+
+.sidebar i{
+    color:var(--accent);
+    margin-right:8px;
+}
+
+/* 技能 */
+.skill{
+    margin-bottom:14px;
     font-size:0.9rem;
 }
-
-/* 橫向卡片區 */
-.scroll{
-    display:flex;
-    gap:15px;
-    overflow-x:auto;
-    padding:20px;
-}
-
-.card{
-    min-width:260px;
-    background:var(--card);
-    border-radius:15px;
-    padding:20px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.05);
-    flex-shrink:0;
-}
-
-/* 技能標籤 */
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-bottom:10px;
-}
-
-.tag{
-    background:#eef2ff;
-    color:var(--accent);
-    padding:5px 10px;
-    border-radius:15px;
-    font-size:0.8rem;
-}
-
-/* 技能條 */
 .skill-bar{
     height:6px;
-    background:#e5e7eb;
+    background:#eef2ff;
     border-radius:10px;
 }
 .skill-level{
@@ -93,39 +97,27 @@ h1{margin:10px 0 5px;}
     background:linear-gradient(90deg,#6366f1,#60a5fa);
     width:0;
     border-radius:10px;
+    transition:1s;
 }
 
-/* 主區 */
-.container{
-    max-width:1000px;
-    margin:auto;
-    padding:20px;
-}
-
-/* timeline卡片 */
-.timeline-card{
-    background:white;
-    padding:20px;
-    border-radius:15px;
+/* timeline */
+.timeline-item{
     margin-bottom:20px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.05);
-}
-
-.timeline-card:hover{
-    transform:translateY(-5px);
-}
-
-/* 標題 */
-.title{
-    color:var(--accent);
-    margin-bottom:10px;
-    font-weight:600;
+    padding-left:15px;
+    border-left:3px solid #e0e7ff;
 }
 
 /* 文字 */
 p{
     color:var(--sub);
     margin:5px 0;
+}
+
+/* 響應式 */
+@media(max-width:768px){
+    .layout{
+        grid-template-columns:1fr;
+    }
 }
 </style>
 </head>
@@ -139,78 +131,105 @@ p{
     <div class="career">求職意向：輕鬆、有創作力的崗位</div>
 </header>
 
-<!-- 橫向資訊（新穎重點） -->
-<div class="scroll">
+<div class="layout">
+
+<!-- 左側 -->
+<div class="sidebar">
 
 <div class="card">
 <div class="title">個人資訊</div>
-<p>柯靜宜</p>
-<p>亞洲大學</p>
-<p>114024010</p>
-<p>大學在學中</p>
+<div class="info-item"><i class="fas fa-id-card"></i>柯靜宜</div>
+<div class="info-item"><i class="fas fa-user-graduate"></i>亞洲大學</div>
+<div class="info-item"><i class="fas fa-id-badge"></i>114024010</div>
+<div class="info-item"><i class="fas fa-graduation-cap"></i>大學在學中</div>
+<div class="info-item"><i class="fas fa-phone"></i>0912-345-678</div>
+<div class="info-item"><i class="fas fa-envelope"></i>example@email.com</div>
+<div class="info-item"><i class="fas fa-map-marker-alt"></i>台中某處限時開放冷氣宿舍</div>
+<div class="info-item"><i class="fas fa-birthday-cake"></i>2003/02/30</div>
 </div>
 
 <div class="card">
-<div class="title">聯絡方式</div>
-<p>📞 0912-345-678</p>
-<p>📧 example@email.com</p>
-<p>📍 台中某處限時開放冷氣宿舍</p>
-<p>🎂 2003/02/30</p>
-</div>
+<div class="title">技能</div>
 
-<div class="card">
-<div class="title">技能亮點</div>
-
-<div class="tags">
-<div class="tag">畫大餅</div>
-<div class="tag">暴力解決</div>
-<div class="tag">低配Python</div>
-</div>
-
-<p>技能熟練度</p>
-
-<div class="skill-bar"><div class="skill-level" data-level="95"></div></div>
-<br>
+<div class="skill">聽人話 40%
 <div class="skill-bar"><div class="skill-level" data-level="40"></div></div>
+</div>
 
+<div class="skill">畫大餅 95%
+<div class="skill-bar"><div class="skill-level" data-level="95"></div></div>
+</div>
+
+<div class="skill">Python 1%
+<div class="skill-bar"><div class="skill-level" data-level="1"></div></div>
+</div>
+
+<div class="skill">英文能力 10%
+<div class="skill-bar"><div class="skill-level" data-level="10"></div></div>
+</div>
+
+<div class="skill">團隊合作 15%
+<div class="skill-bar"><div class="skill-level" data-level="15"></div></div>
+</div>
+
+<div class="skill">暴力問題解決 100%
+<div class="skill-bar"><div class="skill-level" data-level="100"></div></div>
 </div>
 
 </div>
 
-<!-- 主內容 -->
-<div class="container">
+</div>
 
-<div class="timeline-card">
+<!-- 右側 -->
+<div class="main">
+
+<div class="card">
 <div class="title">教育背景</div>
 
-<p><strong>2025 - 至今</strong></p>
+<div class="timeline-item">
+<strong>2025 - 至今</strong>
 <p>亞洲大學 - 資訊傳播學系</p>
 <p>學士學位 | 學號：114024010</p>
 <p>主要課程：程式設計、資料結構、人工智慧、數位內容創作</p>
 <p>GPA：3.2/4.0（可根據實際情況修改）</p>
+</div>
 
-<p><strong>2022 - 2025</strong></p>
+<div class="timeline-item">
+<strong>2022 - 2025</strong>
 <p>高中就讀學校</p>
 <p>普通高中 | 資訊相關選修課程</p>
 </div>
 
-<div class="timeline-card">
-<div class="title">實習 / 專案經歷</div>
-
-<p><strong>2024 - 2025</strong></p>
-<p>學校專案開發團隊</p>
-<p>內容創作與影像編輯</p>
-
-<p><strong>2023 - 2024</strong></p>
-<p>校園環境維護志工</p>
-<p>志工隊員</p>
 </div>
 
-<div class="timeline-card">
+<div class="card">
+<div class="title">實習 / 專案經歷</div>
+
+<div class="timeline-item">
+<strong>2024 - 2025</strong>
+<p>學校專案開發團隊</p>
+<p>內容創作與影像編輯</p>
+<p>負責校園活動影像拍攝、後期剪輯與數位內容製作</p>
+<p>完成30+場校園活動影像紀錄</p>
+</div>
+
+<div class="timeline-item">
+<strong>2023 - 2024</strong>
+<p>校園環境維護志工</p>
+<p>志工隊員</p>
+<p>參與校園環境整理、公共區域清潔，協助活動場地佈置</p>
+</div>
+
+</div>
+
+<div class="card">
 <div class="title">自我介紹</div>
 <p>
-您好，我是亞洲大學資訊傳播學系的柯靜宜（學號：114024010），具備數位內容創作相關的基礎知識與實踐經驗。
+您好，我是亞洲大學資訊傳播學系的柯靜宜（學號：114024010），具備數位內容創作相關的基礎知識與實踐經驗，擁有積極的學習態度和強烈的責任感。<br><br>
+我善於傾聽他人意見，具備良好的溝通能力與問題解決思維，在參與校園專案的過程中，累積了影像拍攝、後期製作與團隊協作的經驗。我對創作類工作充滿熱情，願意主動學習新技能，並將所學應用於實際工作中。<br><br>
+我期待能加入充滿創意與活力的團隊，在實踐中持續成長，同時為團隊的發展貢獻自己的力量。
 </p>
+</div>
+
 </div>
 
 </div>
