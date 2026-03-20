@@ -10,18 +10,19 @@
 
 <style>
 :root{
-    --bg:#0f172a;
-    --card:rgba(255,255,255,0.05);
-    --border:rgba(255,255,255,0.12);
-    --text:#e5e7eb;
-    --sub:#9ca3af;
-    --accent:#7c9cff;
+    --bg:#f5f7fb;
+    --card:#ffffff;
+    --border:#e5e7eb;
+    --text:#1f2937;
+    --sub:#6b7280;
+    --accent:#4f46e5;
 }
 
+/* 背景（柔和淺色） */
 body{
     margin:0;
     font-family:'Noto Sans TC',sans-serif;
-    background:linear-gradient(120deg,#0f172a,#020617);
+    background:var(--bg);
     color:var(--text);
 }
 
@@ -35,7 +36,8 @@ header{
     width:130px;
     height:130px;
     border-radius:50%;
-    border:2px solid var(--border);
+    border:3px solid var(--border);
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
 }
 
 h1{margin:10px 0 5px;}
@@ -56,8 +58,9 @@ h1{margin:10px 0 5px;}
 .card{
     background:var(--card);
     border:1px solid var(--border);
-    border-radius:16px;
+    border-radius:14px;
     padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
 
 /* 標題 */
@@ -65,12 +68,13 @@ h1{margin:10px 0 5px;}
     color:var(--accent);
     margin-bottom:15px;
     font-size:1.2rem;
+    font-weight:600;
 }
 
 /* 左側 */
 .sidebar .info-item{
     margin-bottom:10px;
-    font-size:0.9rem;
+    font-size:0.95rem;
 }
 
 .sidebar i{
@@ -80,17 +84,19 @@ h1{margin:10px 0 5px;}
 
 /* 技能 */
 .skill{
-    margin-bottom:12px;
+    margin-bottom:14px;
+    font-size:0.9rem;
 }
 .skill-bar{
     height:6px;
-    background:rgba(255,255,255,0.1);
+    background:#eef2ff;
     border-radius:10px;
 }
 .skill-level{
     height:100%;
-    background:linear-gradient(90deg,#7c9cff,#6ee7f9);
+    background:linear-gradient(90deg,#6366f1,#60a5fa);
     width:0;
+    border-radius:10px;
     transition:1s;
 }
 
@@ -98,11 +104,14 @@ h1{margin:10px 0 5px;}
 .timeline-item{
     margin-bottom:20px;
     padding-left:15px;
-    border-left:2px solid var(--border);
+    border-left:3px solid #e0e7ff;
 }
 
 /* 文字 */
-p{color:var(--sub);margin:5px 0;}
+p{
+    color:var(--sub);
+    margin:5px 0;
+}
 
 /* 響應式 */
 @media(max-width:768px){
@@ -200,14 +209,14 @@ p{color:var(--sub);margin:5px 0;}
 <p>學校專案開發團隊</p>
 <p>內容創作與影像編輯</p>
 <p>負責校園活動影像拍攝、後期剪輯與數位內容製作</p>
-<p>完成30+場活動影像紀錄</p>
+<p>完成30+場校園活動影像紀錄</p>
 </div>
 
 <div class="timeline-item">
 <strong>2023 - 2024</strong>
 <p>校園環境維護志工</p>
 <p>志工隊員</p>
-<p>參與校園整理與活動支援</p>
+<p>參與校園環境整理、公共區域清潔，協助活動場地佈置</p>
 </div>
 
 </div>
@@ -226,7 +235,6 @@ p{color:var(--sub);margin:5px 0;}
 </div>
 
 <script>
-// 技能動畫
 document.querySelectorAll(".skill-level").forEach(el=>{
     setTimeout(()=>{
         el.style.width = el.dataset.level + "%";
