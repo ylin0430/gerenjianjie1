@@ -3,195 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>個人履歷 - 亞洲大學 柯靜宜</title>
+<title>個人履歷 - 柯靜宜</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-:root {
-    --bg: #0f172a;
-    --card: rgba(255,255,255,0.06);
-    --border: rgba(255,255,255,0.12);
-    --text: #e5e7eb;
-    --subtext: #9ca3af;
-    --accent: #7c9cff;
-    --accent-soft: rgba(124,156,255,0.15);
+:root{
+    --bg:#0f172a;
+    --card:rgba(255,255,255,0.05);
+    --border:rgba(255,255,255,0.12);
+    --text:#e5e7eb;
+    --sub:#9ca3af;
+    --accent:#7c9cff;
 }
 
-/* 背景（柔和漸層） */
-body {
-    margin: 0;
-    font-family: 'Noto Sans TC', sans-serif;
-    background: linear-gradient(120deg, #0f172a, #111827, #020617);
-    color: var(--text);
-    line-height: 1.7;
+body{
+    margin:0;
+    font-family:'Noto Sans TC',sans-serif;
+    background:linear-gradient(120deg,#0f172a,#020617);
+    color:var(--text);
 }
 
-/* 容器 */
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
+/* header */
+header{
+    text-align:center;
+    padding:50px 20px 30px;
 }
 
-/* Header（降低亮度避免疲勞） */
-header {
-    text-align: center;
-    padding: 60px 20px 40px;
+.profile-img{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    border:2px solid var(--border);
 }
 
-.profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 2px solid var(--border);
-    box-shadow: 0 0 0 6px rgba(255,255,255,0.03);
-    transition: 0.4s;
+h1{margin:10px 0 5px;}
+.subtitle{color:var(--sub);}
+.career{color:var(--accent);font-size:0.9rem;}
+
+/* 主排版 */
+.layout{
+    display:grid;
+    grid-template-columns: 300px 1fr;
+    gap:25px;
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
 }
 
-.profile-img:hover {
-    transform: scale(1.05);
-}
-
-h1 {
-    font-size: 2.4rem;
-    margin: 15px 0 5px;
-}
-
-.subtitle {
-    color: var(--subtext);
-}
-
-.career-intent {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 6px 14px;
-    border-radius: 20px;
-    background: var(--accent-soft);
-    color: var(--accent);
-    font-size: 0.9rem;
-}
-
-/* 卡片（低對比玻璃） */
-.section {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 28px;
-    margin-bottom: 25px;
-    backdrop-filter: blur(10px);
-    transition: 0.3s;
-}
-
-.section:hover {
-    transform: translateY(-6px);
+/* 卡片 */
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px;
 }
 
 /* 標題 */
-.section-title {
-    font-size: 1.6rem;
-    margin-bottom: 20px;
-    color: var(--accent);
+.title{
+    color:var(--accent);
+    margin-bottom:15px;
+    font-size:1.2rem;
 }
 
-/* grid */
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-    gap: 20px;
+/* 左側 */
+.sidebar .info-item{
+    margin-bottom:10px;
+    font-size:0.9rem;
 }
 
-.info-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.info-icon {
-    margin-right: 10px;
-    color: var(--accent);
+.sidebar i{
+    color:var(--accent);
+    margin-right:8px;
 }
 
 /* 技能 */
-.skill-item {
-    margin-bottom: 15px;
+.skill{
+    margin-bottom:12px;
 }
-
-.skill-name {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.95rem;
+.skill-bar{
+    height:6px;
+    background:rgba(255,255,255,0.1);
+    border-radius:10px;
 }
-
-.skill-bar {
-    height: 8px;
-    background: rgba(255,255,255,0.08);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.skill-level {
-    height: 100%;
-    background: linear-gradient(90deg, #7c9cff, #6ee7f9);
-    width: 0;
-    transition: 1s;
+.skill-level{
+    height:100%;
+    background:linear-gradient(90deg,#7c9cff,#6ee7f9);
+    width:0;
+    transition:1s;
 }
 
 /* timeline */
-.timeline {
-    border-left: 2px solid var(--border);
-    padding-left: 20px;
-}
-
-.timeline-item {
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -10px;
-    top: 5px;
-    width: 10px;
-    height: 10px;
-    background: var(--accent);
-    border-radius: 50%;
+.timeline-item{
+    margin-bottom:20px;
+    padding-left:15px;
+    border-left:2px solid var(--border);
 }
 
 /* 文字 */
-p {
-    color: var(--subtext);
-}
+p{color:var(--sub);margin:5px 0;}
 
-/* 回頂 */
-.back-to-top {
-    position: fixed;
-    right: 25px;
-    bottom: 25px;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: var(--card);
-    border: 1px solid var(--border);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    display: none;
-}
-
-/* 動畫 */
-.fade {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 0.6s;
-}
-
-.fade.show {
-    opacity: 1;
-    transform: translateY(0);
+/* 響應式 */
+@media(max-width:768px){
+    .layout{
+        grid-template-columns:1fr;
+    }
 }
 </style>
 </head>
@@ -201,138 +118,120 @@ p {
 <header>
     <img src="IMG_3882.jpeg" class="profile-img">
     <h1>柯靜宜</h1>
-    <p class="subtitle">亞洲大學 | 學號：114024010</p>
-    <p class="career-intent">求職意向：輕鬆、有創作力的崗位</p>
+    <div class="subtitle">亞洲大學 | 學號：114024010</div>
+    <div class="career">求職意向：輕鬆、有創作力的崗位</div>
 </header>
 
-<main class="container">
+<div class="layout">
 
-<section class="section fade">
-<h2 class="section-title">個人資訊</h2>
-<div class="info-grid">
-<div>
-<div class="info-item"><i class="fas fa-id-card info-icon"></i>姓名：柯靜宜</div>
-<div class="info-item"><i class="fas fa-user-graduate info-icon"></i>學校：亞洲大學</div>
-<div class="info-item"><i class="fas fa-id-badge info-icon"></i>學號：114024010</div>
-<div class="info-item"><i class="fas fa-graduation-cap info-icon"></i>學歷：大學在學中</div>
-</div>
-<div>
-<div class="info-item"><i class="fas fa-phone info-icon"></i>電話：0912-345-678</div>
-<div class="info-item"><i class="fas fa-envelope info-icon"></i>信箱：example@email.com</div>
-<div class="info-item"><i class="fas fa-map-marker-alt info-icon"></i>地址：台中某處限時開放冷氣宿舍</div>
-<div class="info-item"><i class="fas fa-birthday-cake info-icon"></i>生日：2003/02/30</div>
-</div>
-</div>
-</section>
+<!-- 左側 -->
+<div class="sidebar">
 
-<section class="section fade">
-<h2 class="section-title">專業技能</h2>
+<div class="card">
+<div class="title">個人資訊</div>
+<div class="info-item"><i class="fas fa-id-card"></i>柯靜宜</div>
+<div class="info-item"><i class="fas fa-user-graduate"></i>亞洲大學</div>
+<div class="info-item"><i class="fas fa-id-badge"></i>114024010</div>
+<div class="info-item"><i class="fas fa-graduation-cap"></i>大學在學中</div>
+<div class="info-item"><i class="fas fa-phone"></i>0912-345-678</div>
+<div class="info-item"><i class="fas fa-envelope"></i>example@email.com</div>
+<div class="info-item"><i class="fas fa-map-marker-alt"></i>台中某處限時開放冷氣宿舍</div>
+<div class="info-item"><i class="fas fa-birthday-cake"></i>2003/02/30</div>
+</div>
 
-<div class="skill-item">
-<div class="skill-name"><span>聽人話</span><span>40%</span></div>
+<div class="card">
+<div class="title">技能</div>
+
+<div class="skill">聽人話 40%
 <div class="skill-bar"><div class="skill-level" data-level="40"></div></div>
 </div>
 
-<div class="skill-item">
-<div class="skill-name"><span>畫大餅</span><span>95%</span></div>
+<div class="skill">畫大餅 95%
 <div class="skill-bar"><div class="skill-level" data-level="95"></div></div>
 </div>
 
-<div class="skill-item">
-<div class="skill-name"><span>Python</span><span>1%</span></div>
+<div class="skill">Python 1%
 <div class="skill-bar"><div class="skill-level" data-level="1"></div></div>
 </div>
 
-<div class="skill-item">
-<div class="skill-name"><span>英文能力</span><span>10%</span></div>
+<div class="skill">英文能力 10%
 <div class="skill-bar"><div class="skill-level" data-level="10"></div></div>
 </div>
 
-<div class="skill-item">
-<div class="skill-name"><span>團隊合作</span><span>15%</span></div>
+<div class="skill">團隊合作 15%
 <div class="skill-bar"><div class="skill-level" data-level="15"></div></div>
 </div>
 
-<div class="skill-item">
-<div class="skill-name"><span>暴力問題解決</span><span>100%</span></div>
+<div class="skill">暴力問題解決 100%
 <div class="skill-bar"><div class="skill-level" data-level="100"></div></div>
 </div>
 
-</section>
+</div>
 
-<section class="section fade">
-<h2 class="section-title">教育背景</h2>
-<div class="timeline">
+</div>
+
+<!-- 右側 -->
+<div class="main">
+
+<div class="card">
+<div class="title">教育背景</div>
 
 <div class="timeline-item">
-<div>2025 - 至今</div>
-<div>亞洲大學 - 資訊傳播學系</div>
+<strong>2025 - 至今</strong>
+<p>亞洲大學 - 資訊傳播學系</p>
 <p>學士學位 | 學號：114024010</p>
 <p>主要課程：程式設計、資料結構、人工智慧、數位內容創作</p>
 <p>GPA：3.2/4.0（可根據實際情況修改）</p>
 </div>
 
 <div class="timeline-item">
-<div>2022 - 2025</div>
-<div>高中就讀學校</div>
+<strong>2022 - 2025</strong>
+<p>高中就讀學校</p>
 <p>普通高中 | 資訊相關選修課程</p>
 </div>
 
 </div>
-</section>
 
-<section class="section fade">
-<h2 class="section-title">實習/專案經歷</h2>
-<div class="timeline">
+<div class="card">
+<div class="title">實習 / 專案經歷</div>
 
 <div class="timeline-item">
-<div>2024 - 2025</div>
-<div>學校專案開發團隊</div>
+<strong>2024 - 2025</strong>
+<p>學校專案開發團隊</p>
 <p>內容創作與影像編輯</p>
+<p>負責校園活動影像拍攝、後期剪輯與數位內容製作</p>
+<p>完成30+場活動影像紀錄</p>
 </div>
 
 <div class="timeline-item">
-<div>2023 - 2024</div>
-<div>校園環境維護志工</div>
+<strong>2023 - 2024</strong>
+<p>校園環境維護志工</p>
 <p>志工隊員</p>
+<p>參與校園整理與活動支援</p>
 </div>
 
 </div>
-</section>
 
-<section class="section fade">
-<h2 class="section-title">自我介紹</h2>
+<div class="card">
+<div class="title">自我介紹</div>
 <p>
 您好，我是亞洲大學資訊傳播學系的柯靜宜（學號：114024010），具備數位內容創作相關的基礎知識與實踐經驗，擁有積極的學習態度和強烈的責任感。<br><br>
 我善於傾聽他人意見，具備良好的溝通能力與問題解決思維，在參與校園專案的過程中，累積了影像拍攝、後期製作與團隊協作的經驗。我對創作類工作充滿熱情，願意主動學習新技能，並將所學應用於實際工作中。<br><br>
 我期待能加入充滿創意與活力的團隊，在實踐中持續成長，同時為團隊的發展貢獻自己的力量。
 </p>
-</section>
+</div>
 
-</main>
+</div>
 
-<div class="back-to-top" id="top">↑</div>
+</div>
 
 <script>
 // 技能動畫
 document.querySelectorAll(".skill-level").forEach(el=>{
-    setTimeout(()=>{ el.style.width = el.dataset.level + "%"; },300);
+    setTimeout(()=>{
+        el.style.width = el.dataset.level + "%";
+    },300);
 });
-
-// 滾動動畫
-const observer = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-        if(e.isIntersecting) e.target.classList.add("show");
-    });
-});
-document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
-
-// 回頂
-const btn = document.getElementById("top");
-window.addEventListener("scroll",()=>{
-    btn.style.display = window.scrollY>300?"flex":"none";
-});
-btn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
 </script>
 
 </body>
