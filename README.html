@@ -1,591 +1,267 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人履歷 - 亞洲大學 柯靜宜</title>
-    <style>
-        /* 全域樣式重置 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>柯靜宜｜個人履歷</title>
 
-        /* 變數定義 */
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #f8f9fa;
-            --gray-color: #95a5a6;
-            --dark-color: #343a40;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s ease;
-        }
+<!-- 字型 -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;600&display=swap" rel="stylesheet">
 
-        body {
-            line-height: 1.6;
-            color: var(--dark-color);
-            background-color: #f5f7fa;
-            scroll-behavior: smooth;
-        }
+<style>
+:root {
+    --primary: #0f172a;
+    --secondary: #6366f1;
+    --accent: #22d3ee;
+    --glass: rgba(255,255,255,0.08);
+    --border: rgba(255,255,255,0.2);
+}
 
-        /* 容器樣式 */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+/* 背景動畫 */
+body {
+    margin: 0;
+    font-family: 'Noto Sans TC', sans-serif;
+    color: white;
+    background: linear-gradient(135deg, #0f172a, #1e293b, #020617);
+    background-size: 300% 300%;
+    animation: bgMove 12s ease infinite;
+}
 
-        /* 頁首樣式 - 升級優化 */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), #34495e);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+@keyframes bgMove {
+    0% {background-position: 0%}
+    50% {background-position: 100%}
+    100% {background-position: 0%}
+}
 
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: linear-gradient(90deg, var(--secondary-color), #2ecc71, var(--accent-color));
-        }
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
 
-        /* 頭像樣式升級 - 增加陰影和動畫 */
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 8px solid rgba(255, 255, 255, 0.8);
-            margin-bottom: 1.5rem;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
+/* Header */
+header {
+    text-align: center;
+    padding: 60px 20px;
+}
 
-        .profile-img:hover {
-            transform: scale(1.08);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-        }
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 30px rgba(34,211,238,0.5);
+    transition: 0.4s;
+}
 
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.8rem;
-            letter-spacing: 2px;
-        }
+.profile-img:hover {
+    transform: scale(1.1);
+}
 
-        .subtitle {
-            font-size: 1.3rem;
-            color: #ecf0f1;
-            margin-bottom: 1.2rem;
-            font-weight: 300;
-        }
+h1 {
+    margin: 15px 0 5px;
+    font-size: 2.5rem;
+}
 
-        .career-intent {
-            font-size: 1.1rem;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 8px 20px;
-            border-radius: 30px;
-            display: inline-block;
-        }
+.subtitle {
+    color: #cbd5f5;
+}
 
-        /* 主要內容區域 - 優化間距和陰影 */
-        main {
-            padding: 4rem 0;
-        }
+/* 卡片 */
+.section {
+    background: var(--glass);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    transition: 0.4s;
+}
 
-        .section {
-            background-color: white;
-            border-radius: 15px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border-top: 5px solid var(--secondary-color);
-        }
+.section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(99,102,241,0.3);
+}
 
-        .section:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-        }
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--accent);
+}
 
-        .section-title {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 2rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 4px solid var(--secondary-color);
-            display: inline-block;
-            position: relative;
-        }
+/* 技能 */
+.skill {
+    margin-bottom: 15px;
+}
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 50px;
-            height: 4px;
-            background: var(--accent-color);
-        }
+.skill-bar {
+    background: rgba(255,255,255,0.1);
+    height: 10px;
+    border-radius: 10px;
+}
 
-        /* 個人資訊樣式 - 優化排版 */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 1rem;
-        }
+.skill-level {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #6366f1, #22d3ee);
+    width: 0;
+    transition: 1.2s;
+}
 
-        .info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
+/* timeline */
+.timeline-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-left: 3px solid var(--accent);
+}
 
-        .info-icon {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-right: 1.2rem;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(52, 152, 219, 0.1);
-            border-radius: 50%;
-        }
+/* 動畫 */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s;
+}
 
-        /* 技能樣式 - 優化進度條外觀 */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-        .skill-item {
-            margin-bottom: 2rem;
-        }
+/* 回頂 */
+.back-to-top {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    background: var(--secondary);
+    padding: 12px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+}
 
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .skill-bar {
-            height: 12px;
-            background-color: #f1f1f1;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        .skill-level {
-            height: 100%;
-            border-radius: 8px;
-            transition: width 1.2s ease-in-out;
-            width: 0;
-            background: linear-gradient(90deg, var(--secondary-color), #2ecc71);
-            position: relative;
-        }
-
-        .skill-level::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                to right,
-                rgba(255, 255, 255, 0.1),
-                rgba(255, 255, 255, 0.05)
-            );
-        }
-
-        /* 時間軸樣式 - 升級視覺效果 */
-        .timeline {
-            position: relative;
-            margin: 2.5rem 0;
-            padding-left: 2.5rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 6px;
-            background: linear-gradient(to bottom, var(--secondary-color), var(--accent-color));
-            border-radius: 6px;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.5rem;
-            padding: 2rem;
-            background-color: #f9f9f9;
-            border-radius: 12px;
-            border-left: 5px solid var(--secondary-color);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .timeline-item:hover {
-            transform: translateX(5px);
-            border-left-color: var(--accent-color);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -3rem;
-            top: 2rem;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background-color: white;
-            border: 6px solid var(--secondary-color);
-            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
-        }
-
-        .timeline-date {
-            font-weight: bold;
-            color: var(--secondary-color);
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-        }
-
-        .timeline-title {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        /* 自我介紹樣式優化 */
-        #introduction p {
-            line-height: 2;
-            font-size: 1.15rem;
-            color: #555;
-            text-align: justify;
-            padding: 0 10px;
-        }
-
-        /* 回到頂部按鈕 - 升級外觀 */
-        .back-to-top {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 1000;
-            font-size: 1.5rem;
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        /* 響應式設計 - 優化手機端顯示 */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-
-            .section {
-                padding: 2rem 1.5rem;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .profile-img {
-                width: 150px;
-                height: 150px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .profile-img {
-                width: 120px;
-                height: 120px;
-            }
-
-            .section-title {
-                font-size: 1.6rem;
-            }
-
-            .timeline-item {
-                padding: 1.5rem;
-            }
-
-            .back-to-top {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-            }
-        }
-    </style>
-    <!-- 引入圖標庫 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- 引入台灣正體中文字型 -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+/* 響應式 */
+@media(max-width:768px){
+    h1{font-size:2rem;}
+}
+</style>
 </head>
+
 <body>
-    <!-- 頁首區域 - 已嵌入你的頭像 IMG_3882.jpeg -->
-    <header>
-        <div class="container">
-            <!-- 核心修改：替換為你的頭像文件 -->
-            <img src="IMG_3882.jpeg" alt="柯靜宜 個人照片" class="profile-img">
-            <h1>柯靜宜</h1>
-            <p class="subtitle">亞洲大學 | 學號：114024010</p>
-            <p class="career-intent">求職意向：輕鬆、有創作力的崗位</p>
-        </div>
-    </header>
 
-    <!-- 主要內容 -->
-    <main class="container">
-        <!-- 個人資訊區段 -->
-        <section class="section" id="personal-info">
-            <h2 class="section-title">個人資訊</h2>
-            <div class="info-grid">
-                <div>
-                    <div class="info-item">
-                        <i class="fas fa-id-card info-icon"></i>
-                        <span><strong>姓名：</strong>柯靜宜</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-user-graduate info-icon"></i>
-                        <span><strong>學校：</strong>亞洲大學</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-id-badge info-icon"></i>
-                        <span><strong>學號：</strong>114024010</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-graduation-cap info-icon"></i>
-                        <span><strong>學歷：</strong>大學在學中</span>
-                    </div>
-                </div>
-                <div>
-                    <div class="info-item">
-                        <i class="fas fa-phone info-icon"></i>
-                        <span><strong>電話：</strong>0912-345-678</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope info-icon"></i>
-                        <span><strong>信箱：</strong>example@email.com</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt info-icon"></i>
-                        <span><strong>地址：</strong>台中某處限時開放冷氣宿舍</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-birthday-cake info-icon"></i>
-                        <span><strong>生日：</strong>2003/02/30</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+<header>
+    <img src="IMG_3882.jpeg" class="profile-img">
+    <h1>柯靜宜</h1>
+    <p class="subtitle">亞洲大學｜資訊傳播學系</p>
+    <p>🎯 目標：創意內容 / 影像剪輯 / 輕鬆但有成長的工作</p>
+</header>
 
-        <!-- 學業成績/專長 -->
-        <section class="section" id="skills">
-            <h2 class="section-title">專業技能</h2>
-            <div class="skills-grid">
-                <div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>聽人話</span>
-                            <span>40%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" data-level="40"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>畫大餅</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" data-level="95"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Python</span>
-                            <span>1%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" data-level="1"></div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>英文能力</span>
-                            <span>10%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" data-level="10"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>團隊合作</span>
-                            <span>15%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" data-level="15"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>暴力問題解決</span>
-                            <span>100%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" data-level="100"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<main class="container">
 
-        <!-- 教育背景 -->
-        <section class="section" id="education">
-            <h2 class="section-title">教育背景</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">2025 - 至今</div>
-                    <div class="timeline-title">亞洲大學 - 資訊傳播學系</div>
-                    <p>學士學位 | 學號：114024010</p>
-                    <p>主要課程：程式設計、資料結構、人工智慧、數位內容創作</p>
-                    <p>GPA：3.2/4.0（可根據實際情況修改）</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2022 - 2025</div>
-                    <div class="timeline-title">高中就讀學校</div>
-                    <p>普通高中 | 資訊相關選修課程</p>
-                </div>
-            </div>
-        </section>
+<section class="section">
+<h2 class="section-title">個人資訊</h2>
+<p>📞 0912-345-678</p>
+<p>📧 example@email.com</p>
+<p>📍 台中</p>
+</section>
 
-        <!-- 經歷與作品集 -->
-        <section class="section" id="experience">
-            <h2 class="section-title">實習/專案經歷</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">2024 - 2025</div>
-                    <div class="timeline-title">學校專案開發團隊</div>
-                    <p><strong>擔任角色：</strong>內容創作與影像編輯</p>
-                    <p><strong>專案描述：</strong>負責校園活動影像拍攝、後期剪輯與數位內容製作</p>
-                    <p><strong>主要成果：</strong>完成30+場校園活動影像紀錄，製作10+支宣傳影片</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2023 - 2024</div>
-                    <div class="timeline-title">校園環境維護志工</div>
-                    <p><strong>擔任角色：</strong>志工隊員</p>
-                    <p><strong>工作內容：</strong>參與校園環境整理、公共區域清潔，協助活動場地佈置</p>
-                    <p><strong>收穫：</strong>培養責任感與團隊協作能力，提升執行力</p>
-                </div>
-            </div>
-        </section>
+<section class="section">
+<h2 class="section-title">專業技能</h2>
 
-        <!-- 自我介紹 -->
-        <section class="section" id="introduction">
-            <h2 class="section-title">自我介紹</h2>
-            <p>
-                您好，我是亞洲大學資訊傳播學系的柯靜宜（學號：114024010），具備數位內容創作相關的基礎知識與實踐經驗，擁有積極的學習態度和強烈的責任感。<br><br>
-                我善於傾聽他人意見，具備良好的溝通能力與問題解決思維，在參與校園專案的過程中，累積了影像拍攝、後期製作與團隊協作的經驗。我對創作類工作充滿熱情，願意主動學習新技能，並將所學應用於實際工作中。<br><br>
-                我期待能加入充滿創意與活力的團隊，在實踐中持續成長，同時為團隊的發展貢獻自己的力量。
-            </p>
-        </section>
-    </main>
+<div class="skill">
+<p>影片剪輯（Premiere）</p>
+<div class="skill-bar"><div class="skill-level" data-level="80"></div></div>
+</div>
 
-    <!-- 回到頂部按鈕 -->
-    <div class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+<div class="skill">
+<p>影像拍攝</p>
+<div class="skill-bar"><div class="skill-level" data-level="75"></div></div>
+</div>
 
-    <script>
-        // 頁面加載完成後執行
-        document.addEventListener('DOMContentLoaded', function() {
-            // 技能條動畫效果 - 優化延遲
-            const skillLevels = document.querySelectorAll('.skill-level');
-            
-            setTimeout(() => {
-                skillLevels.forEach(level => {
-                    const dataLevel = level.getAttribute('data-level');
-                    level.style.width = `${dataLevel}%`;
-                });
-            }, 500);
+<div class="skill">
+<p>社群經營</p>
+<div class="skill-bar"><div class="skill-level" data-level="70"></div></div>
+</div>
 
-            // 回到頂部按鈕功能
-            const backToTopBtn = document.getElementById('backToTop');
-            
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    backToTopBtn.classList.add('show');
-                } else {
-                    backToTopBtn.classList.remove('show');
-                }
-            });
-            
-            backToTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
+<div class="skill">
+<p>Python</p>
+<div class="skill-bar"><div class="skill-level" data-level="20"></div></div>
+</div>
 
-            // 平滑滾動（若未來添加導航欄可直接使用）
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
-    </script>
+</section>
+
+<section class="section">
+<h2 class="section-title">教育背景</h2>
+
+<div class="timeline-item">
+<p><strong>2025 - 至今</strong></p>
+<p>亞洲大學｜資訊傳播學系</p>
+</div>
+
+<div class="timeline-item">
+<p><strong>2022 - 2025</strong></p>
+<p>高中</p>
+</div>
+
+</section>
+
+<section class="section">
+<h2 class="section-title">專案經歷</h2>
+
+<div class="timeline-item">
+<p><strong>校園影片製作</strong></p>
+<p>拍攝＋剪輯30+活動影片</p>
+</div>
+
+<div class="timeline-item">
+<p><strong>校園志工</strong></p>
+<p>團隊合作與活動支援</p>
+</div>
+
+</section>
+
+<section class="section">
+<h2 class="section-title">自我介紹</h2>
+<p>
+我是亞洲大學資訊傳播學系學生，具備影像製作與數位內容創作能力，
+熟悉影片剪輯與社群內容經營，喜歡創作並持續學習新技能。
+</p>
+</section>
+
+</main>
+
+<div class="back-to-top" id="backToTop">↑</div>
+
+<script>
+// 技能動畫
+document.querySelectorAll(".skill-level").forEach(el=>{
+    setTimeout(()=>{
+        el.style.width = el.dataset.level + "%";
+    },300);
+});
+
+// 滾動動畫
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".section").forEach(sec=>{
+    sec.classList.add("fade-in");
+    observer.observe(sec);
+});
+
+// 回到頂部
+const btn = document.getElementById("backToTop");
+
+window.addEventListener("scroll",()=>{
+    btn.style.display = window.scrollY > 300 ? "block" : "none";
+});
+
+btn.onclick = ()=>window.scrollTo({top:0,behavior:"smooth"});
+</script>
+
 </body>
 </html>
